@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Resume Analyzer Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Resume Analyzer</h1>
+
+    <p class="subtitle">
+        Resume analysis completed successfully.
+    </p>
+
+
+    <!-- Match Score -->
+
+    <div class="score">
+
+        <h2>Resume Match Score</h2>
+
+        <h1>{{ match_percentage }}%</h1>
+
+    </div>
+
+
+    <!-- Matched Skills -->
+
+    <div class="skill-box matched">
+
+        <h2>✅ Matched Skills</h2>
+
+        {% if matched_skills %}
+
+            <ul>
+
+                {% for skill in matched_skills %}
+
+                    <li>{{ skill }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No matched skills found.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Missing Skills -->
+
+    <div class="skill-box missing">
+
+        <h2>❌ Missing Skills</h2>
+
+        {% if missing_skills %}
+
+            <ul>
+
+                {% for skill in missing_skills %}
+
+                    <li>{{ skill }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No missing skills found.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Recommendations -->
+
+    <div class="skill-box recommendation">
+
+        <h2>💡 Recommended Learning</h2>
+
+        {% if recommendations %}
+
+            <ul>
+
+                {% for recommendation in recommendations %}
+
+                    <li>{{ recommendation }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>
+                Great! No major learning recommendations.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- NLP -->
+
+    <div class="skill-box">
+
+        <h2>🧠 NLP Similarity</h2>
+
+        <p>
+            Resume and job description textual similarity:
+            <strong>{{ similarity_score }}%</strong>
+        </p>
+
+    </div>
+
+
+    <a href="/" class="back-button">
+        ← Analyze Another Resume
+    </a>
+
+</div>
+
+</body>
+
+</html>
