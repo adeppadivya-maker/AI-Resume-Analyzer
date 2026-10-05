@@ -68,7 +68,7 @@ AI-Resume-Analyzer/
 python app.py
 
 
-to **iske neeche** ye add karo:
+
 
 ```markdown
 Open your browser and go to:
